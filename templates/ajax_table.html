@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>編號</th>
+        <th>評論</th>
+        <th>死/活</th>
+        <th>攻擊/防禦</th>
+        <th>好棋/壞棋</th>
+        <th>圍地/打入</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable({
+        ajax: '/api/data',
+        columns: [
+          {data: 'Id'},
+          {data: 'comment'},
+          {data: 'live_or_die'},
+          {data: 'atk_or_def'},
+          {data: 'good_or_bad'},
+          {data: 'Enclosure'}
+        ],
+      });
+    });
+  </script>
+{% endblock %}

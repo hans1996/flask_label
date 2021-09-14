@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>編號</th>
+        <th>評論</th>
+        <th>死/活</th>
+        <th>攻擊/防禦</th>
+        <th>好棋/壞棋</th>
+        <th>圍地/打入</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{ user.Id }}</td>
+          <td>{{ user.comment }}</td>
+          <td>{{ user.live_or_die }}</td>
+          <td>{{ user.atk_or_def }}</td>
+          <td>{{ user.good_or_bad }}</td>
+          <td>{{ user.Enclosure }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
